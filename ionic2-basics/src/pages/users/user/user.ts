@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NavParams } from "ionic-angular";
+import { NavParams, NavController } from "ionic-angular";
 
 @Component({
     selector: 'page-user',
@@ -8,7 +8,10 @@ import { NavParams } from "ionic-angular";
 export class UserPage implements OnInit {
     name: string;
 
-    constructor(private navParams: NavParams) { }
+    constructor(
+        private navParams: NavParams,
+        private navCtrl: NavController
+    ) { }
 
     ngOnInit() {
         // If we just pass a property
@@ -16,5 +19,13 @@ export class UserPage implements OnInit {
 
         // If we pass an object, get property name
         this.name = this.navParams.get('userName');
+    }
+
+    onGoBack() {
+        // remove the top most page (the actual page) and so get back to the previous one
+        // this.navCtrl.pop();
+
+        // remove all pages on the stack excepts the root page
+        this.navCtrl.popToRoot();
     }
 }
