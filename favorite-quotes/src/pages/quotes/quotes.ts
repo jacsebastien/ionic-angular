@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 
 import { QuotesCategory } from '../../app/shared/interfaces/quote-category.interface';
+import { Quote } from '../../app/shared/interfaces/quote.interface';
 
 @IonicPage()
 @Component({
@@ -20,5 +21,9 @@ export class QuotesPage implements OnInit {
 
     ngOnInit() {
         this.quotesCategory = this.navParams.data;
+    }
+
+    onAddToFavorite(quote: Quote) {
+        console.log("Quote Added !");
     }
 }
