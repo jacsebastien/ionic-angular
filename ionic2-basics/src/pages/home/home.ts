@@ -7,13 +7,10 @@ import { UsersPage } from '../users/users';
     templateUrl: 'home.html'
 })
 export class HomePage {
-    // Get a reference to UsersPage for navigation
+    // Get a reference to UsersPage for template navigation
     usersPage = UsersPage;
 
-    // navigate from code
-    // constructor(public navCtrl: NavController) {
-
-    // }
+    // constructor(public navCtrl: NavController) { }
 
     // onGoToUsers() {
     //     // Push new page on top of the stack to show it in place of current page
