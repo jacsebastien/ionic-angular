@@ -1,18 +1,18 @@
-<!--
-  Generated template for the LibraryPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Library</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Quotes Library</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-list>
+        <button ion-item *ngFor="let quoteCategory of quotesCollection">
+            <ion-icon [name]="quoteCategory.icon" item-left></ion-icon>
+            <h2>{{ quoteCategory.category }}</h2>
+            <p>{{ quoteCategory.quotes.length }} Quotes</p>
+        </button>
+    </ion-list>
 </ion-content>
