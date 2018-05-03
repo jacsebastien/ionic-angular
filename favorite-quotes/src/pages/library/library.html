@@ -9,7 +9,11 @@
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let quoteCategory of quotesCollection">
+        <button
+            ion-item
+            *ngFor="let quoteCategory of quotesCollection"
+            [navPush]="quotesPage"
+            [navParams]="quoteCategory">
             <ion-icon [name]="quoteCategory.icon" item-left></ion-icon>
             <h2>{{ quoteCategory.category }}</h2>
             <p>{{ quoteCategory.quotes.length }} Quotes</p>
