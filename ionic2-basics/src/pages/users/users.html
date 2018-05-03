@@ -8,8 +8,10 @@
 
 
 <ion-content padding>
-    <button ion-button (click)="onLoadUser('Sja')">User 'Sja'</button>
+    <!-- With built-in ionics directives -->
+    <button ion-button [navPush]="userPage" [navParams]="{userName: 'Sja'}">User 'Sja'</button>
     <hr>
+    <!-- With code -->
     <button ion-button (click)="onLoadUser('Sej')">User 'Sej'</button>
 </ion-content>
 

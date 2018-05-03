@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+// import { NavController } from 'ionic-angular';
 import { UsersPage } from '../users/users';
 
 @Component({
@@ -7,14 +7,17 @@ import { UsersPage } from '../users/users';
     templateUrl: 'home.html'
 })
 export class HomePage {
+    // Get a reference to UsersPage for navigation
+    usersPage = UsersPage;
 
-    constructor(public navCtrl: NavController) {
+    // navigate from code
+    // constructor(public navCtrl: NavController) {
 
-    }
+    // }
 
-    onGoToUsers() {
-        // Push new page on top of the stack to show it in place of current page
-        this.navCtrl.push(UsersPage);
-    }
+    // onGoToUsers() {
+    //     // Push new page on top of the stack to show it in place of current page
+    //     this.navCtrl.push(UsersPage);
+    // }
 
 }

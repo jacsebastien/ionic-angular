@@ -1,11 +1,12 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Home Page
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Home Page
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <button ion-button (click)="onGoToUsers()">Users</button>
+    <!-- Push new page on top of the stack to show it in place of current page -->
+    <button ion-button [navPush]="usersPage">Users</button>
 </ion-content>
