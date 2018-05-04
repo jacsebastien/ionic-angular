@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, AlertController } from 'ionic-angular';
 
 import { QuotesCategory } from '../../app/shared/interfaces/quote-category.interface';
 import { Quote } from '../../app/shared/interfaces/quote.interface';
@@ -12,7 +12,10 @@ import { Quote } from '../../app/shared/interfaces/quote.interface';
 export class QuotesPage implements OnInit {
     quotesCategory: QuotesCategory
 
-    constructor(private navParams: NavParams) { }
+    constructor(
+        private navParams: NavParams,
+        private alertCtrl: AlertController
+    ) { }
 
     // ionViewDidLoad() {
     //     this.quotesCategory = this.navParams.data;
@@ -23,7 +26,28 @@ export class QuotesPage implements OnInit {
         this.quotesCategory = this.navParams.data;
     }
 
-    onAddToFavorite(quote: Quote) {
-        console.log("Quote Added !");
+    onAddToFavorite(selQuote: Quote) {
+        // create an ionic alert
+        const alert = this.alertCtrl.create({
+            title: "Add Quote",
+            subTitle: "To favorites",
+            message: "Are you sure you want to add the quote to your favorites ?",
+            buttons: [
+                {
+                    text: "Yes",
+                    handler: () => {
+                        console.log('OK');
+                    }
+                }, {
+                    text: "No",
+                    role: "cancel", // if the alert is dissmissed (by clicking outside the alert or in the "No" button) use the handler
+                    handler: () => {
+                        console.log('Cancel');
+                    }
+                }
+            ]
+        });
+        // Show the alert to the user
+        alert.present();
     }
 }
